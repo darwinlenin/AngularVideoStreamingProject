@@ -1,0 +1,26 @@
+<div class="encabezado">
+  <div class="container"></div>
+</div>
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="navbar-brand">
+      <i class="fa fa-video-camera" aria-hidden="true"></i> Mi canal de videos
+    </a>
+
+    <ul class="nav navbar-nav">
+      <li>
+        <a
+          [routerLink]="['/lista-video']"
+          [queryParams]="{ videoID: 230 }"
+          routerLinkActive="active"
+          >Lista de videos</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="['/video-player']" routerLinkActive="active"
+          >Video player</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

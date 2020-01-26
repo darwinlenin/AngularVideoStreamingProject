@@ -1,0 +1,19 @@
+<div class="container componente-lista">
+  <div *ngFor="let video of videos" class="panel">
+    <a [routerLink]="['/video-player', video.id]">
+      <div class="col-sm-2">
+        <img
+          src="{{ rutaServer }}{{ video.imagen_src }}"
+          alt="{{ video.titulo }}"
+          class="thumbnail"
+        />
+      </div>
+
+      <div class="detalles col-sm-10">
+        <h1>{{ video.titulo }}</h1>
+        <p>{{ video.descripcion }}</p>
+        <!--<p>{{ video.video_src }}</p>-->
+      </div>
+    </a>
+  </div>
+</div>
