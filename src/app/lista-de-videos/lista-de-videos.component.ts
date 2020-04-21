@@ -13,11 +13,13 @@ export class ListaDeVideosComponent implements OnInit {
   rutaServer: String;
   constructor(private http: HttpClient) {}
 
-  configUrl = "http://localhost/API/lista-de-videos.php";
+  //configUrl = "http://localhost/PHPAngularConection/API/lista-de-videos.php";
+  configUrl = "https://apizgvideos.azurewebsites.net/API/lista-de-videos.php";
 
   ngOnInit() {
     this.videos = [];
-    this.rutaServer = "http://localhost/API/uploads/";
+    //this.rutaServer = "http://localhost/PHPAngularConection/API/uploads/";
+    this.rutaServer = "https://csbd2ced10e566ax4e5fx957.blob.core.windows.net/videos/";
     this.peticionExterna();
   }
 

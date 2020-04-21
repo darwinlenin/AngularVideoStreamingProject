@@ -3,7 +3,7 @@
     <div class="videoContainer">
 
       <video #videoPlayer (loadedmetadata)="onMetadata($event, videoPlayer)" (timeupdate)="onTimeUpdate($event, videoPlayer)" >
-        <source src="http://localhost/API/uploads/{{videoInfo.video_src}}">
+        <source src="https://csbd2ced10e566ax4e5fx957.blob.core.windows.net/videos/{{videoInfo.video_src}}">
       </video>
 
       <div class="progreso">

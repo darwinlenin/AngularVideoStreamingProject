@@ -33,7 +33,7 @@ export class VideoPlayerComponent implements OnInit {
 
   obtenerInfoVideo(): void {
     this.http
-      .get("http://localhost/API/info-video.php?id=" + this.id)
+      .get("https://apizgvideos.azurewebsites.net/API/info-video.php?id=" + this.id)
       .subscribe((res: Response) => {
         this.videoInfo = res[0];
       });
