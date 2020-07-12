@@ -33,7 +33,9 @@ export class VideoPlayerComponent implements OnInit {
 
   obtenerInfoVideo(): void {
     this.http
-      .get("https://apizgvideos.azurewebsites.net/API/info-video.php?id=" + this.id)
+      //.get("http://localhost/PHPAngularConection/API/info-video.php?id=" + this.id)
+      .get("https://ancient-mesa-14736.herokuapp.com/API/info-video.php?id=" + this.id)
+      //.get("https://apizgvideos.azurewebsites.net/API/info-video.php?id=" + this.id)
       .subscribe((res: Response) => {
         this.videoInfo = res[0];
       });
