@@ -42,3 +42,8 @@ video {}
     text-align: right;
     display: inline;
 }
+
+video {
+  width: 100%;
+  height: auto;
+}
