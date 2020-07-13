@@ -1,13 +1,13 @@
 .navbar {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
+  background-color: #625cb8;
+  border-color: #625cb8;
   border-radius: 0px;
 }
 .navbar a {
   color: #fff;
 }
 .navbar a.active {
-  background: red;
+  background: #5cb8b8;
 }
 
 .navbar ul a:hover {

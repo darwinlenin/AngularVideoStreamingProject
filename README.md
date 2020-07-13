@@ -1,6 +1,6 @@
 # Angular Video Streaming
 
-Project Deployed in Heroku: https://angularvideostreaming.herokuapp.com/
+Project Deployed in Heroku: https://ancient-mesa-14736.herokuapp.com/API/lista-de-videos.php
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version up to 10.0.2.
 
