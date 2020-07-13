@@ -16,7 +16,7 @@ export class VideoPlayerComponent implements OnInit {
   faPause = faPause;
   faStop = faStop;
 
-  @ViewChild('videoPlayer', {static: false})
+  @ViewChild('videoPlayer')
   videoPlayer: any;
   duracion: string;
   progreso: number;
