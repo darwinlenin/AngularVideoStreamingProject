@@ -7,7 +7,7 @@
       <i class="fa fa-video-camera" aria-hidden="true"></i> Video Streaming App
     </a>
 
-    <ul class="nav navbar-nav">
+    <!--<ul class="nav navbar-nav">
       <li>
         <a
           [routerLink]="['/lista-video']"
@@ -21,6 +21,9 @@
           >Video player</a
         >
       </li>
-    </ul>
+    </ul>-->
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    <button type="button" class="p-button-help" pButton icon="pi pi-bars" label="Menú" (click)="menu.toggle($event)"></button>
+
   </div>
 </nav>

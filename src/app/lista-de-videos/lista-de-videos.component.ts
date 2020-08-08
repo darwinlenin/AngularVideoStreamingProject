@@ -1,23 +1,26 @@
-import { Component, OnInit, Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: "app-lista-de-videos",
-  templateUrl: "./lista-de-videos.component.html",
-  styleUrls: ["./lista-de-videos.component.css"]
+  selector: 'app-lista-de-videos',
+  templateUrl: './lista-de-videos.component.html',
+  styleUrls: ['./lista-de-videos.component.css']
 })
 @Injectable()
 export class ListaDeVideosComponent implements OnInit {
   // tslint:disable-next-line: deprecation
+  // tslint:disable-next-line: ban-types
   videos: Array<Object>;
+  // tslint:disable-next-line: ban-types
   rutaServer: String;
+  dataResult: any;
   constructor(private http: HttpClient) {}
 
-  configUrl = "https://ancient-mesa-14736.herokuapp.com/API/lista-de-videos.php";
+  configUrl = 'https://ancient-mesa-14736.herokuapp.com/API/lista-de-videos.php';
 
   ngOnInit() {
     this.videos = [];
-    this.rutaServer = "https://ancient-mesa-14736.herokuapp.com/API/uploads/";
+    this.rutaServer = 'https://ancient-mesa-14736.herokuapp.com/API/uploads/';
     this.peticionExterna();
   }
 
@@ -27,12 +30,8 @@ export class ListaDeVideosComponent implements OnInit {
 
   peticionExterna(): void {
     this.getConfig().subscribe((results: Response) => {
-      let i = 0;
-      while (results[i] != null) {
-        this.videos.push(results[i]);
-        i++;
-      }
-      //console.log(results);
+      this.dataResult = results;
+      for (const entry of this.dataResult ) { this.videos.push(entry); }
     });
   }
 }

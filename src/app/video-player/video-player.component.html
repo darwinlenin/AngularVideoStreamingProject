@@ -3,7 +3,7 @@
     <div class="videoContainer">
 
       <video #videoPlayer (loadedmetadata)="onMetadata($event, videoPlayer)" (timeupdate)="onTimeUpdate($event, videoPlayer)" >
-        <source src="https://ancient-mesa-14736.herokuapp.com/API/uploads/{{videoInfo.video_src}}">
+        <source src="{{ rutaServer }}{{videoInfo.video_src}}">
       </video>
 
       <div class="progreso">
@@ -35,5 +35,7 @@
     </div>  </h1>
       <p>{{ videoInfo.descripcion }}</p>
     </div>
+    <div [innerHtml]="htmlToAdd"></div>
+    <div><br></div>
   </div>
 </div>

@@ -8,6 +8,7 @@ video {}
 .controles {
     font-size: 30px;
     display: contents;
+    cursor:pointer;
 }
 
 .sugerencias {

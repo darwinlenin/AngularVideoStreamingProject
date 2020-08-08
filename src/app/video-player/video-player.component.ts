@@ -1,12 +1,13 @@
-import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Component, OnInit, Injectable, ViewChild } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Injectable, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { faPlay, faPause, faStop } from '@fortawesome/free-solid-svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: "app-video-player",
-  templateUrl: "./video-player.component.html",
-  styleUrls: ["./video-player.component.css"]
+  selector: 'app-video-player',
+  templateUrl: './video-player.component.html',
+  styleUrls: ['./video-player.component.css']
 })
 @Injectable()
 export class VideoPlayerComponent implements OnInit {
@@ -21,21 +22,28 @@ export class VideoPlayerComponent implements OnInit {
   duracion: string;
   progreso: number;
   posicion: string;
+  htmlToAdd: any;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  // tslint:disable-next-line: ban-types
+  rutaServer: String;
+  constructor(private route: ActivatedRoute, private http: HttpClient, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.videoID;
       this.obtenerInfoVideo();
     });
+    this.rutaServer = 'https://ancient-mesa-14736.herokuapp.com/API/uploads/';
   }
 
   obtenerInfoVideo(): void {
     this.http
-      .get("https://ancient-mesa-14736.herokuapp.com/API/info-video.php?id=" + this.id)
+      .get('https://ancient-mesa-14736.herokuapp.com/API/info-video.php?id=' + this.id)
       .subscribe((res: Response) => {
-        this.videoInfo = res[0];
+        if ( res != null) {
+          this.videoInfo = res[0];
+          this.htmlToAdd = this.sanitizer.bypassSecurityTrustHtml(this.videoInfo.componenthtml);
+        }
       });
   }
 
@@ -52,16 +60,16 @@ export class VideoPlayerComponent implements OnInit {
     this.videoPlayer.nativeElement.pause();
   }
 
-  onMetadata(e,video): void {
-    let minutos = Math.floor(video.duration / 60);
-    let segundos = Math.floor(video.duration);
-    this.duracion = minutos + ":" + segundos;
+  onMetadata(e, video): void {
+    const minutos = Math.floor(video.duration / 60);
+    const segundos = Math.floor(video.duration);
+    this.duracion = minutos + ':' + segundos;
   }
 
-  onTimeUpdate(e, video):void {
-    this.progreso = Math.floor((video.currentTime/video.duration)*100);
-    let minutos = Math.floor(video.currentTime / 60);
-    let segundos =  Math.floor(video.currentTime);
-    this.posicion = minutos + ":" + segundos;
+  onTimeUpdate(e, video): void {
+    this.progreso = Math.floor((video.currentTime / video.duration ) * 100);
+    const minutos = Math.floor(video.currentTime / 60);
+    const segundos =  Math.floor(video.currentTime);
+    this.posicion = minutos + ':' + segundos;
   }
 }

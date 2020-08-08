@@ -18,3 +18,7 @@
   color: #ffe626;
   text-shadow: none;
 }
+
+.container{
+  display:contents;
+}
