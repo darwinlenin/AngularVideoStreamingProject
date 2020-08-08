@@ -38,7 +38,7 @@ export class VideoPlayerComponent implements OnInit {
 
   obtenerInfoVideo(): void {
     this.http
-      .get('https://ancient-mesa-14736.herokuapp.com/API/info-video.php?id=' + this.id)
+      .get('https://ancient-mesa-14736.herokuapp.com/API/info-video?id=' + this.id)
       .subscribe((res: Response) => {
         if ( res != null) {
           this.videoInfo = res[0];

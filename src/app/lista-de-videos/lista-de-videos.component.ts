@@ -16,7 +16,7 @@ export class ListaDeVideosComponent implements OnInit {
   dataResult: any;
   constructor(private http: HttpClient) {}
 
-  configUrl = 'https://ancient-mesa-14736.herokuapp.com/API/lista-de-videos.php';
+  configUrl = 'https://ancient-mesa-14736.herokuapp.com/API/lista-de-videos';
 
   ngOnInit() {
     this.videos = [];
